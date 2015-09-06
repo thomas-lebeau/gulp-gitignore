@@ -1,7 +1,7 @@
 {
   "name": "gulp-gitignore",
   "version": "0.1.0",
-  "description": "ignore file from the stream according to your .gitignore",
+  "description": "Exlude files defined on .gitignore from the stream",
   "license": "MIT",
   "repository": "Thomas-Lebeau/gulp-gitignore",
   "author": {
