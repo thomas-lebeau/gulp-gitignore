@@ -1,18 +1,45 @@
 {
   "name": "gulp-gitignore",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.0",
+  "description": "ignore file from the stream according to your .gitignore",
+  "license": "MIT",
+  "repository": "Thomas-Lebeau/gulp-gitignore",
+  "author": {
+    "name": "Thomas Lebeau",
+    "email": "lebeau.thomas@gmail.com",
+    "url": "http://lebeau.io"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "xo && mocha"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gulp",
+    "gulpplugin",
+    "git",
+    "gitignore",
+    "exclude",
+    "stream"
+  ],
   "dependencies": {
     "parse-gitignore": "^0.2.0",
     "gulp-filter": "^3.0.1",
     "starts-with": "^1.0.2"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "xo": "*"
+  },
+  "xo": {
+    "space": true,
+    "envs": [
+      "node",
+      "mocha"
+    ]
   }
 }
