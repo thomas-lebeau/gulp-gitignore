@@ -1,45 +1,62 @@
-# <%= moduleName %> [![Build Status](https://travis-ci.org/<%= githubUsername %>/<%= moduleName %>.svg?branch=master)](https://travis-ci.org/<%= githubUsername %>/<%= moduleName %>)
+# gulp-gitignore [![Build Status](https://travis-ci.org/Thomas-Lebeau/gulp-gitignore.svg?branch=master)](https://travis-ci.org/Thomas-Lebeau/gulp-gitignore)
 
->
+> Exlude files on decribed on .gitignore from the stream
 
 
 ## Install
 
 ```
-$ npm install --save <%= moduleName %>
+$ npm install --save-dev gulp-gitignore
 ```
 
 
 ## Usage
 
 ```js
-var <%= camelModuleName %> = require('<%= moduleName %>');
+var gulp = require('gulp');
+var gitignore = require('gulp-gitignore');
 
-<%= camelModuleName %>('unicorns');
-//=> 'unicorns & rainbows'
+gulp.task('default', function () {
+    return gulp.src('src/**/*')
+        // exclude files defined in .gitignore
+        .pipe(gitignore())
+        .pipe(gulp.dest('dist'));
+});
 ```
 
 
 ## API
 
-### <%= camelModuleName %>(input, [options])
+### gitignore(file, [pattern],[options])
 
-#### input
+#### file
 
 Type: `string`
+Default: `.gitignore`
 
-Lorem ipsum.
+The `.gitignore` file.
+
+#### pattern
+
+Type: `array`
+
+You can optionally pass an additional array of patterns to exlude from the stream.
+```js
+gitignore('.gitignore', ['foo', 'bar']);
+```
 
 #### options
 
-##### foo
+Type: `object`
+
+##### options.dot
 
 Type: `boolean`  
 Default: `false`
 
-Lorem ipsum.
+Matches files prefixed with a dot (eg. `.DS_Store`).
 
 
 ## License
 
-MIT © [<%= name %>](https://github.com/<%= githubUsername %>)
+MIT © [Thomas Lebeau](https://github.com/Thomas-Lebeau)
