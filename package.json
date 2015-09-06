@@ -1,0 +1,18 @@
+{
+  "name": "gulp-gitignore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+  },
+  "dependencies": {
+    "parse-gitignore": "^0.2.0",
+    "gulp-filter": "^3.0.1",
+    "starts-with": "^1.0.2"
+  }
+}
