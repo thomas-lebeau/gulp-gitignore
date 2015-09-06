@@ -1,6 +1,6 @@
 # gulp-gitignore [![Build Status](https://travis-ci.org/Thomas-Lebeau/gulp-gitignore.svg?branch=master)](https://travis-ci.org/Thomas-Lebeau/gulp-gitignore)
 
-> Exlude files on decribed on .gitignore from the stream
+> Exlude files defined on .gitignore from the stream
 
 
 ## Install
