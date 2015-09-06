@@ -32,8 +32,11 @@
     "starts-with": "^1.0.2"
   },
   "devDependencies": {
-    "mocha": "*",
-    "xo": "*"
+    "fs": "0.0.2",
+    "gulp-util": "^3.0.6",
+    "mocha": "^2.2.5",
+    "sinon": "^1.16.1",
+    "xo": "^0.8.0"
   },
   "xo": {
     "space": true,
