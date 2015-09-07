@@ -13,7 +13,9 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && mocha"
+    "test": "xo && mocha",
+    "mocha": "mocha",
+    "mocha:watch": "npm run mocha -- -w"
   },
   "files": [
     "index.js"
@@ -27,9 +29,11 @@
     "stream"
   ],
   "dependencies": {
-    "parse-gitignore": "^0.2.0",
+    "gitignore-parser": "0.0.2",
     "gulp-filter": "^3.0.1",
-    "starts-with": "^1.0.2"
+    "parse-gitignore": "^0.2.0",
+    "starts-with": "^1.0.2",
+    "streamfilter": "^1.0.5"
   },
   "devDependencies": {
     "fs": "0.0.2",

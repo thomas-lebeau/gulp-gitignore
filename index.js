@@ -1,10 +1,10 @@
 'use strict';
-var filter = require('gulp-filter');
-var gitignore = require('parse-gitignore');
+var parser = require('gitignore-parser');
 var fs = require('fs');
-var startsWith = require('starts-with');
+var streamfilter = require('streamfilter');
 
-module.exports = function (fp, patterns, options) {
+module.exports = function (fp, options) {
+  options = options || {};
   if (!fp) {
     fp = '.gitignore';
   }
@@ -13,16 +13,13 @@ module.exports = function (fp, patterns, options) {
     return [];
   }
 
-  if (typeof patterns !== 'string' && !Array.isArray(patterns)) {
-    options = patterns;
-    patterns = [];
-  }
-
-  var glob = gitignore(fp, patterns);
-  var inverted = glob.map(function (pattern) {
-    return startsWith(pattern, '!') ? pattern.slice(1) : '!' + pattern;
+  var gitignore = parser.compile(fs.readFileSync(fp, 'utf8'));
+  return streamfilter(function (file, enc, cb) {
+    var match = gitignore.denies(file.relative);
+    cb(match);
+  }, {
+    objectMode: true,
+    passthrough: options.passthough !== false,
+    restore: options.restore
   });
-  inverted.unshift('**/*');
-
-  return filter(inverted, options || {});
 };

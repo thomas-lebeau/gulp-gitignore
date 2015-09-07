@@ -18,14 +18,14 @@ describe('gitignore()', function () {
     this.stub = sinon.stub(fs, 'readFileSync');
 
     var contents = [
-      'foo',
+      'foo/',
       '!foo/b.txt',
       'bar   ',
       '#foobar',
       '',
       '  ',
       'b.txt',
-      '**/.DS_Store',
+      '.DS_Store',
       '!foo/bar/.gitkeep'
     ].join('\n');
 
@@ -53,7 +53,7 @@ describe('gitignore()', function () {
       assert.deepEqual(buffer, [
         fake('foo/b.txt'),
         fake('a.txt'),
-        fake('c.txt')
+        fake('c.txt'),
       ]);
       cb();
     });
@@ -64,7 +64,6 @@ describe('gitignore()', function () {
     stream.write(fake('a.txt'));
     stream.write(fake('b.txt'));
     stream.write(fake('c.txt'));
-    stream.write(fake('.dotfile'));
 
     stream.end();
   });
@@ -93,41 +92,12 @@ describe('gitignore()', function () {
     stream.write(fake('a.txt'));
     stream.write(fake('b.txt'));
     stream.write(fake('c.txt'));
-    stream.write(fake('.dotfile'));
 
     stream.end();
   });
 
-  // NOTE: this one work only alone. async pb?
-  it.skip('should extend .gitignore with pattern', function (cb) {
-    var stream = gitignore('.gitignore', ['c.txt']);
-    var buffer = [];
-
-    stream.on('data', function (file) {
-      buffer.push(file);
-    });
-
-    stream.on('end', function () {
-      assert.equal(buffer.length, 2);
-      assert.deepEqual(buffer, [
-        fake('foo/b.txt'),
-        fake('a.txt')
-      ]);
-      cb();
-    });
-
-    stream.write(fake('foo/a.txt'));
-    stream.write(fake('foo/b.txt'));
-    stream.write(fake('bar/a.txt'));
-    stream.write(fake('a.txt'));
-    stream.write(fake('b.txt'));
-    stream.write(fake('c.txt'));
-
-    stream.end();
-  });
-
-  it('should work with dotfiles', function (cb) {
-    var stream = gitignore('.gitignore', {dot: true});
+  it.skip('should work with dotfiles', function (cb) {
+    var stream = gitignore();
     var buffer = [];
 
     stream.on('data', function (file) {
