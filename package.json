@@ -13,8 +13,8 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && mocha",
-    "mocha": "mocha",
+    "test": "xo && mocha test",
+    "mocha": "mocha test",
     "mocha:watch": "npm run mocha -- -w"
   },
   "files": [
@@ -29,17 +29,13 @@
     "stream"
   ],
   "dependencies": {
-    "gitignore-parser": "0.0.2",
-    "gulp-filter": "^3.0.1",
     "parse-gitignore": "^0.2.0",
-    "starts-with": "^1.0.2",
+    "gulp-util": "^3.0.6",
     "streamfilter": "^1.0.5"
   },
   "devDependencies": {
-    "fs": "0.0.2",
-    "gulp-util": "^3.0.6",
     "mocha": "^2.2.5",
-    "sinon": "^1.16.1",
+    "should": "^7.1.0",
     "xo": "^0.8.0"
   },
   "xo": {

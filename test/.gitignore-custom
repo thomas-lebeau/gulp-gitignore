@@ -1,0 +1,16 @@
+# Ignore some files
+foo.txt
+bar.txt
+
+# Ignore some folders
+foo
+bar/
+
+Include this file
+!foo/a.txt
+!foo.txt
+
+
+# Always ignore these files
+.DS_Store
+*.log

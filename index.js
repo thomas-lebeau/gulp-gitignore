@@ -1,7 +1,8 @@
 'use strict';
-var parser = require('gitignore-parser');
 var fs = require('fs');
+var gutil = require('gulp-util');
 var streamfilter = require('streamfilter');
+var parser = require('gitignore-parser');
 
 module.exports = function (fp, options) {
   options = options || {};
@@ -10,7 +11,7 @@ module.exports = function (fp, options) {
   }
 
   if (!fs.existsSync(fp)) {
-    return [];
+    throw new gutil.PluginError('gulp-gitignore', '`file` not found');
   }
 
   var gitignore = parser.compile(fs.readFileSync(fp, 'utf8'));
