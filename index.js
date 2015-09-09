@@ -6,9 +6,7 @@ var parser = require('gitignore-parser');
 
 module.exports = function (fp, options) {
   options = options || {};
-  if (!fp) {
-    fp = '.gitignore';
-  }
+  fp = fp || '.gitignore';
 
   if (!fs.existsSync(fp)) {
     throw new gutil.PluginError('gulp-gitignore', '`file` not found');
