@@ -29,8 +29,9 @@
     "stream"
   ],
   "dependencies": {
-    "parse-gitignore": "^0.2.0",
+    "gitignore-parser": "0.0.2",
     "gulp-util": "^3.0.6",
+    "parse-gitignore": "^0.2.0",
     "streamfilter": "^1.0.5"
   },
   "devDependencies": {
