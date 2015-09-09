@@ -1,3 +1,4 @@
+/* eslint no-unused-vars:0 */
 'use strict';
 var should = require('should');
 var path = require('path');
@@ -98,7 +99,7 @@ describe('gitignore()', function () {
 });
 
 /**
- * It will fail untill gitignore-parser() fixes its bug.
+ * It will fail until gitignore-parser() fixes its bug.
  * @see https://github.com/codemix/gitignore-parser/pull/10
  */
 describe('[dependencies] gitignore-parser()', function () {
