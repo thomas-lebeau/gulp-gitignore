@@ -5,7 +5,7 @@ var gutil = require('gulp-util');
 var gitignore = require('../');
 
 var fake = function (fakePath) {
-  var base = __dirname + '/../';
+  var base = path.join(__dirname, '/../');
   return new gutil.File({
     base: base,
     path: path.join(base, fakePath)
@@ -92,7 +92,7 @@ describe('gitignore()', function () {
   it('should trow proper error if gitignore path is invalid', function (cb) {
     (function () {
       gitignore('non-existant/.gitignore');
-    }).should.throw()
+    }).should.throw();
     cb();
   });
 });
@@ -131,5 +131,5 @@ describe('[dependencies] gitignore-parser()', function () {
     stream.write(fake('baz/.DS_Store'));
 
     stream.end();
-  })
+  });
 });
